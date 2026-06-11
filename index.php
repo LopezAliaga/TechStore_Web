@@ -32,33 +32,39 @@ include 'includes/db.php';
 <div class="container">
     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 40px;">
         <div style="width: 50px; height: 2px; background: var(--primary); box-shadow: var(--neon-glow);"></div>
-        <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 3px;">Top Ventas</h2>
+        <h2 style="margin: 0; text-transform: uppercase; letter-spacing: 3px;">Top Productos</h2>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
         <?php
-$res = $conn->query("SELECT * FROM productos LIMIT 4");
+// ACTUALIZACIÓN: Muestra 8 productos en orden aleatorio (RAND())
+$res = $conn->query("SELECT * FROM productos ORDER BY RAND() LIMIT 15");
 while($p = $res->fetch_assoc()) {
-    echo '<div class="producto-card" style="text-align: center; position: relative; overflow: hidden;">';
+    echo '<div class="producto-card" style="text-align: center; position: relative; overflow: hidden; padding: 15px;">';
     
     // Badge de oferta
-    echo '<div style="position: absolute; top: 10px; right: 10px; background: var(--primary); color: #000; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 5px; box-shadow: var(--neon-glow);">NUEVO</div>';
+    echo '<div style="position: absolute; top: 10px; right: 10px; background: var(--primary); color: #000; font-size: 10px; font-weight: 900; padding: 3px 8px; border-radius: 5px; z-index: 2;">DESTACADO</div>';
     
-    // --- LÓGICA DE IMAGEN (Esto es lo que faltaba) ---
+    // Lógica de Imagen
     $imagen_db = $p['imagen'];
     if (filter_var($imagen_db, FILTER_VALIDATE_URL)) {
         $ruta_index = $imagen_db;
     } else {
-        // Apuntamos a la carpeta productos que confirmamos antes
         $ruta_index = "img/productos/" . trim($imagen_db);
     }
 
+    // ACTUALIZACIÓN: Enlace al detalle del producto envolviendo la imagen y el título
+    echo '<a href="detalleProducto.php?id='.$p['id'].'" style="text-decoration: none; color: inherit; display: block;">';
+    
     echo '<img src="' . $ruta_index . '" 
-               style="height: 180px; width: 100%; object-fit: contain; margin: 20px 0;" 
-               onerror="this.src=\'https://via.placeholder.com/300?text=Hardware\'">';
-    // --- FIN LÓGICA DE IMAGEN ---
+               style="height: 180px; width: 100%; object-fit: contain; margin: 10px 0; transition: transform 0.3s;" 
+               onerror="this.src=\'https://via.placeholder.com/300?text=Hardware\'"
+               onmouseover="this.style.transform=\'scale(1.05)\'" 
+               onmouseout="this.style.transform=\'scale(1)\'">';
 
-    echo '<h3 style="margin: 10px 0; font-size: 16px; min-height: 40px;">'.$p['nombre'].'</h3>';
+    echo '<h3 style="margin: 10px 0; font-size: 16px; min-height: 40px; color: var(--text-main);">'.$p['nombre'].'</h3>';
+    echo '</a>'; // Cierre del enlace
+
     echo '<h2 class="neon-text" style="font-size: 24px; margin-bottom: 20px;">S/ '.$p['precio'].'</h2>';
     
     echo '<form method="POST" action="productos.php">';

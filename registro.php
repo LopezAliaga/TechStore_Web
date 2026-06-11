@@ -20,7 +20,7 @@ if (isset($_POST['registrar'])) {
 ?>
 <div class="container" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
     <div class="producto-card" style="width: 100%; max-width: 400px; padding: 40px;">
-        <h2 class="neon-text" style="text-align: center; margin-bottom: 30px;">REGISTRO DE PILOTO</h2>
+        <h2 class="neon-text" style="text-align: center; margin-bottom: 30px;">REGISTRO DE USUARIO</h2>
         <form method="POST">
             <label style="color: var(--primary); font-size: 11px; letter-spacing: 1px;">NOMBRE COMPLETO</label>
             <input type="text" name="nombre" required style="width:100%; padding:12px; margin:10px 0 20px 0; background:rgba(0,0,0,0.5); border:1px solid #333; color:white; border-radius:8px;">
