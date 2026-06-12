@@ -4,18 +4,18 @@ if (!isset($_SESSION['usuario_id'])) { header("Location: login.php"); exit(); }
 include 'header.php';
 ?>
 <div class="container" style="padding: 40px 15px;">
-    <h2 style="border-left: 5px solid var(--primary); padding-left: 15px; text-transform: uppercase; color: var(--text-main);">Checkout y Logística</h2>
+    <h2 style="border-left: 5px solid var(--primary); padding-left: 15px; text-transform: uppercase; color: var(--text-main);">Checkout y Logistica</h2>
     
     <div style="display: flex; gap: 30px; flex-wrap: wrap; margin-top: 20px;">
         
         <div style="flex: 2; background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--search-border); box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 300px;">
-            <h3 style="margin-top: 0; color: var(--primary);"><i class="fa-solid fa-credit-card"></i> Detalles de Facturación y Envío</h3>
+            <h3 style="margin-top: 0; color: var(--primary);"><i class="fa-solid fa-credit-card"></i> Detalles de Facturacion y Envio</h3>
             <hr style="border-color: var(--search-border); margin-bottom: 25px;">
             
             <form action="procesar_compra.php" method="POST">
                 
                 <div style="margin-bottom: 25px;">
-                    <label style="color: var(--text-muted); font-size: 14px; font-weight: bold; display: block; margin-bottom: 8px;">Dirección de Envío Completa:</label>
+                    <label style="color: var(--text-muted); font-size: 14px; font-weight: bold; display: block; margin-bottom: 8px;">Direccion de Envio Completa:</label>
                     <input type="text" name="direccion" required placeholder="Ej: Av. Las Palmeras 123, Los Olivos" style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; border: 1px solid var(--search-border); background: var(--search-bg); color: var(--text-main); outline: none; font-family: 'Poppins', sans-serif;">
                 </div>
                 
@@ -25,7 +25,7 @@ include 'header.php';
                 </div>
                 
                 <div style="margin-bottom: 25px;">
-                    <label style="color: var(--text-muted); font-size: 14px; font-weight: bold; display: block; margin-bottom: 8px;">Número de Tarjeta (16 dígitos):</label>
+                    <label style="color: var(--text-muted); font-size: 14px; font-weight: bold; display: block; margin-bottom: 8px;">Numero de Tarjeta (16 digitos):</label>
                     <input type="text" name="tarjeta" placeholder="0000 0000 0000 0000" maxlength="16" minlength="16" pattern="\d{16}" title="Debe contener exactamente 16 números" required oninput="this.value = this.value.replace(/[^0-9]/g, '');" style="width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; border: 1px solid var(--search-border); background: var(--search-bg); color: var(--text-main); outline: none; font-family: 'Poppins', sans-serif; letter-spacing: 2px;">
                 </div>
                 
@@ -49,7 +49,7 @@ include 'header.php';
             <hr style="border-color: var(--search-border); margin-bottom: 20px;">
             
             <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-muted);">
-                <span>Costo de Envío:</span>
+                <span>Costo de Envio:</span>
                 <span style="color: var(--text-main);">S/ 15.00</span>
             </div>
             
@@ -68,7 +68,7 @@ include 'header.php';
             
             <div style="margin-top: 30px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-align: center;">
                 <i class="fa-solid fa-truck-fast" style="font-size: 24px; color: var(--primary); margin-bottom: 10px;"></i>
-                <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Tu pedido incluirá un código de seguimiento (Tracking) una vez procesado el pago.</p>
+                <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Tu pedido incluira un codigo de seguimiento (Tracking) una vez procesado el pago.</p>
             </div>
         </div>
     </div>

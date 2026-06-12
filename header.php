@@ -116,6 +116,10 @@ if (isset($_POST['toggle_theme'])) {
 <body>
     <header>
         <a href="index.php" class="logo">TECH<span>STORE</span></a>
+        
+        <a href="feed.php" style="color: var(--text-main); text-decoration: none; font-weight: bold; margin-right: 20px;">
+                <i class="fa-solid fa-camera-retro" style="color: var(--primary);"></i> Comunidad
+            </a>
 
         <form class="buscador" action="productos.php" method="GET">
             <input type="text" name="buscar" placeholder="Buscar hardware...">
@@ -129,11 +133,9 @@ if (isset($_POST['toggle_theme'])) {
                 </button>
             </form>
 
-            <a href="productos.php">TIENDA</a>
-            <a href="feed.php" style="color: var(--text-main); text-decoration: none; font-weight: bold; margin-right: 20px;">
-                <i class="fa-solid fa-camera-retro" style="color: var(--primary);"></i> Comunidad
-            </a>
-            <a href="carrito.php"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="productos.php" style="margin-left: 10px; font-weight: bold;">Tienda</a>
+            
+            <a href="carrito.php" style="margin-left: 10px; font-weight: bold;"><i class="fa-solid fa-cart-shopping"></i> Carrito </a>
             <a href="mis_compras.php" style="margin-left: 10px; font-weight: bold;">📦 Mis Compras</a>
             
             <?php if(isset($_SESSION['usuario_id'])): ?>

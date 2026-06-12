@@ -41,7 +41,7 @@ $user_id = $_SESSION['usuario_id'];
                     echo '<p style="font-size: 14px; margin: 8px 0; color: var(--text-muted);"><strong>Enviado a:</strong> <span style="color: var(--text-main);">'.$compra['direccion'].'</span></p>';
                     echo '<p style="font-size: 14px; margin: 8px 0; color: var(--text-muted);"><strong>Tarjeta:</strong> <span style="color: var(--text-main);">'.$compra['tarjeta_oculta'].'</span></p>';
                     $envio = $compra['costo_envio'] ?? '0.00';
-                    echo '<p style="font-size: 14px; margin: 8px 0; color: var(--text-muted);"><strong>Costo Envío Logístico:</strong> <span style="color: var(--primary);">S/ '.$envio.'</span></p>';
+                    echo '<p style="font-size: 14px; margin: 8px 0; color: var(--text-muted);"><strong>Costo Envio Logistico:</strong> <span style="color: var(--primary);">S/ '.$envio.'</span></p>';
                     echo '</div>';
                     
                     echo '<div style="background: var(--search-bg); padding: 15px; border-radius: 8px;">';
